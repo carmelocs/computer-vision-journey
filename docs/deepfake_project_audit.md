@@ -11,6 +11,15 @@
 | Discriminator | Uses R1 regularization, no progressive growing |
 | Key Features | Adaptive augmentation, lazy regularization |
 
+## 🖼️ Model Architecture Sketch
+![Generator-Discriminator Flow](path-to-diagram.png)
+> Simplified view of GAN components in our pipeline
+
+## 💻 Key Code Snippet
+```python
+loss_G = adv_loss + λ₁ * perceptual_loss + λ₂ * identity_loss
+```
+
 ## ⚙️ Training Configuration
 - Framework: PyTorch
 - Batch Size: 32 (synthetic)
