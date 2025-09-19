@@ -1,4 +1,5 @@
 # ⚔️ Generative Adversarial Networks (GANs): Fundamentals  
+
 **Author**: Carmelo CS  
 **Date**: April 5, 2025  
 **Purpose**: Understand GAN theory for deepfake generation at IDVerse  
@@ -6,7 +7,9 @@
 ---
 
 ## 🧠 What is a GAN?
+
 A **Generative Adversarial Network (GAN)** is a deep learning architecture consisting of two neural networks:
+
 - **Generator (G)**: Learns to create fake data (e.g., images) from random noise.
 - **Discriminator (D)**: Learns to distinguish real data from fake.
 
@@ -25,7 +28,7 @@ Eventually, the generator produces samples so realistic that the discriminator c
 | **Generator** | Maps latent vector `z` → fake image `G(z)` | Transposed conv, BatchNorm, ReLU |
 | **Discriminator** | Classifies image as real/fake | Conv, LeakyReLU, Sigmoid |
 
-### Example Flow:
+### Example Flow
 
 ```
 Noise (z) → [Generator] → Fake Image → [Discriminator] → "Fake"
@@ -37,6 +40,7 @@ Real Image → [Discriminator] → "Real"
 ## 📉 Loss Functions
 
 ### 1. **Original GAN Loss (Minimax)**
+
 From Goodfellow et al. (2014):
 
 $$
@@ -47,6 +51,7 @@ $$
 - `G` wants to minimize: make `D(G(z)) ≈ 1` (fool D)
 
 ### 2. **Modified Loss for Generator**
+
 In practice, train G using:
 $$
 \mathbb{E}_{z}[\log D(G(z))]
@@ -80,6 +85,7 @@ This avoids saturation early in training.
 ---
 
 ## 📚 References
+
 - [Goodfellow et al. (2014) – GAN Paper](https://arxiv.org/abs/1406.2661)
 - [CS231n – GAN Lecture](https://www.youtube.com/watch?v=8L11aMN5KY8)
 - [PyTorch DCGAN Tutorial](https://pytorch.org/tutorials/beginner/dcgan_faces_tutorial.html)
@@ -87,6 +93,7 @@ This avoids saturation early in training.
 ---
 
 ## 📝 My Takeaways
+
 - GANs are powerful but unstable — careful tuning needed.
 - Understanding loss functions is key to debugging training.
 - At IDVerse, we likely use advanced variants (StyleGAN, ADA), but DCGAN is the foundation.

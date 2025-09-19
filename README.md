@@ -7,6 +7,7 @@ Currently building expertise in generative models, evaluation metrics, and ethic
 ---
 
 ## 📂 Folder Structure
+
 ```bash
 computer-vision-journey/
 ├── month_1_foundations/
@@ -52,7 +53,6 @@ computer-vision-journey/
 
 ---
 
-
 ## 📈 Progress Tracker
 
 ✅ **Month 1: Complete**  
@@ -65,5 +65,6 @@ computer-vision-journey/
 ---
 
 ## 🔗 Connect With Me
+
 - 💼 [LinkedIn](https://www.linkedin.com/in/shawn-cheng-a41647105/)
 - 🏢 Working at [IDVerse - A LexisNexis® Risk Solutions Company](https://risk.lexisnexis.com/global/en/products/idverse)
