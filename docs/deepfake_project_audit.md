@@ -3,9 +3,30 @@
 - What data augmentation is applied?
 - How do we handle diverse skin tones and genders in training?
 
+## 🔍 Architecture Deep Dive
+| Component | Details |
+|---------|--------|
+| Model Type | StyleGAN2-ADA (assumed) |
+| Generator | Input: latent z (512-dim), Output: 1024x1024 RGB |
+| Discriminator | Uses R1 regularization, no progressive growing |
+| Key Features | Adaptive augmentation, lazy regularization |
+
+## ⚙️ Training Configuration
+- Framework: PyTorch
+- Batch Size: 32 (synthetic)
+- Optimizer: Adam (β₁=0.0, β₂=0.99)
+- Learning Rate: 0.002
+- Total Steps: ~150k
+- Hardware: 4x A100 (estimated)
+
 ## 📊 Evaluation Metrics
-| Metric | Value (if known) | Purpose |
-|-------|------------------|--------|
-| FID   | TBD              | Measure realism |
-| LPIPS | TBD              | Perceptual similarity |
-| Human Review | Yes/No     | Final quality check |
+| Metric | Purpose | Target |
+|-------|--------|-------|
+| FID   | Realism vs. real dataset | < 15 |
+| LPIPS | Perceptual diversity | > 0.45 |
+| Human Review | Artifact detection | Weekly audits |
+
+## ❓ Open Questions
+- How is data leakage prevented between train/val?
+- Are synthetic videos temporally coherent?
+- What post-processing (e.g., blending, sharpening) is applied?

@@ -24,10 +24,10 @@ computer-vision-journey/
 
 | File | Description |
 |------|-------------|
-| [`week1_cv_basics.ipynb`](week1_cv_basics.ipynb) | CNNs, OpenCV experiments, image processing basics |
-| [`gan_fundamentals.md`](gan_fundamentals.md) | Summary of GAN theory, loss functions, and architecture |
-| [`deepfake_project_audit.md`](deepfake_project_audit.md) | Technical breakdown of my deepfake generation project |
-| [`project_pipeline_diagram.png`](project_pipeline_diagram.png) | Visual map of data → model → output pipeline |
+| [`week1_cv_basics.ipynb`](./month_1_foundations/week1_cv_basics.ipynb) | CNNs, OpenCV experiments, image processing basics |
+| [`gan_fundamentals.md`](./month_1_foundations/gan_fundamentals.md) | Summary of GAN theory, loss functions, and architecture |
+| [`deepfake_project_audit.md`](./docs/deepfake_project_audit.md) | Technical breakdown of my deepfake generation project |
+| [`project_pipeline_diagram.png`](./month_1_foundations/project_pipeline_diagram.png) | Visual map of data → model → output pipeline |
 
 ---
 
