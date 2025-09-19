@@ -55,14 +55,13 @@ computer-vision-journey/
 
 ## 📈 Progress Tracker
 
-✅ **Month 1: Complete**  
+✅ **Month 1: Complete** – 19 Sep 2025
+
 🟢 Building foundations in CV & GANs  
 🟢 Auditing deepfake project at IDVerse  
 🟢 Setting up public learning log
 
 ➡️ **Next**: Month 2 — Implement a DCGAN from scratch
-
----
 
 ## 🔗 Connect With Me
 
