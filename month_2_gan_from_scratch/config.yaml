@@ -1,0 +1,21 @@
+# Dataset
+dataset: "cifar10"  # or "celeba"
+image_size: 64      # Resize all images to 64x64
+batch_size: 128
+num_workers: 4
+
+# Model
+latent_dim: 100
+g_features: 64  # Generator feature multiplier
+d_features: 64  # Discriminator feature multiplier
+channels: 3     # RGB
+
+# Training
+lr_g: 0.0002
+lr_d: 0.0002
+beta1: 0.5      # Adam optimizer momentum
+num_epochs: 20
+print_every: 100  # Print loss every N batches
+sample_every: 5   # Save sample images every N epochs
+save_dir: "samples"
+model_save_dir: "models"
