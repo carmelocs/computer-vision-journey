@@ -4,7 +4,15 @@
 
 Currently building expertise in generative models, evaluation metrics, and ethical AI at **IDVerse Australia**.
 
----
+## ⚡ Quick Start
+
+```bash
+# Clone & set up environment
+git clone https://github.com/carmelocs/computer-vision-journey.git
+cd computer-vision-journey
+conda env create -f environment.yml
+conda activate cv-journey
+```
 
 ## 📂 Folder Structure
 
@@ -30,8 +38,6 @@ computer-vision-journey/
 | [`deepfake_project_audit.md`](./docs/deepfake_project_audit.md) | Technical breakdown of my deepfake generation project |
 | [`project_pipeline_diagram.png`](./month_1_foundations/project_pipeline_diagram.png) | Visual map of data → model → output pipeline |
 
----
-
 ## 🗓️ 12-Month Learning Plan
 
 | Month | Focus Area |
@@ -50,8 +56,6 @@ computer-vision-journey/
 | 12 | Portfolio Finalization |
 
 🎯 **End Goal**: Be capable of leading R&D in generative vision and synthetic data.
-
----
 
 ## 📈 Progress Tracker
 
