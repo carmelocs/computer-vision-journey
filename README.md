@@ -6,6 +6,8 @@ Currently building expertise in generative models, evaluation metrics, and ethic
 
 ## ⚡ Quick Start
 
+This project uses `conda` to manage dependencies and ensure reproducibility. Follow these steps to set up your environment locally. Compatible with CUDA 12.0 system.
+
 ```bash
 # Clone & set up environment
 git clone https://github.com/carmelocs/computer-vision-journey.git
