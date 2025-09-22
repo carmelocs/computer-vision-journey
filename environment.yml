@@ -1,0 +1,24 @@
+name: cv-journey
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.9
+  - pytorch
+  - torchvision
+  - torchaudio
+  - pytorch-cuda=12.1        # Compatible with CUDA 12.0 system
+  - jupyter
+  - matplotlib
+  - tqdm
+  - pandas
+  - numpy
+  - scikit-image
+  - pip
+  - pip:
+    - wandb
+    - opencv-python
+    - torchsummary
+    - pyyaml
