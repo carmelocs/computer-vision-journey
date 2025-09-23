@@ -65,11 +65,22 @@ computer-vision-journey/
 
 ✅ **Month 1: Complete** – 19 Sep 2025
 
-🟢 Building foundations in CV & GANs  
-🟢 Auditing deepfake project at IDVerse  
-🟢 Setting up public learning log
+- Building foundations in CV & GANs  
+- Auditing deepfake project at IDVerse  
+- Setting up public learning log
 
-➡️ **Next**: Month 2 — Implement a DCGAN from scratch
+---
+
+🟢  **Month 2: In Progress** – 23 Sep 2025  
+
+- Built DCGAN from scratch
+- Trained on CIFAR-10 for 20 epochs
+- Generated images saved in `/samples/`
+- W&B logs available
+
+---
+
+➡️ **Next**: Month 3 — Study StyleGAN & Latent Space Editing
 
 ## 🔗 Connect With Me
 
