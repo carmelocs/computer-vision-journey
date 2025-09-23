@@ -16,6 +16,8 @@ conda env create -f environment.yml
 conda activate cv-journey
 ```
 
+🐞 If something breaks: `conda deactivate && conda env remove -n cv-journey` then rebuild.
+
 ## 📂 Folder Structure
 
 ```bash
