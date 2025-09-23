@@ -54,7 +54,7 @@ computer-vision-journey/
 | 6 | Deepfake Detection |
 | 7 | Video Generation & Temporal Consistency |
 | 8 | Model Optimization & Deployment |
-| 9 | 3D Face Reconstruction (DECA, FAN) |1i
+| 9 | 3D Face Reconstruction (DECA, FAN) |
 | 10 | Ethics, Bias, and Responsible AI |
 | 11 | Open Source Contribution |
 | 12 | Portfolio Finalization |
