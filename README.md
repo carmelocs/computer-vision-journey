@@ -48,13 +48,13 @@ computer-vision-journey/
 |------|------------|
 | 1 | Foundations & Project Audit |
 | 2 | Build a GAN from Scratch |
-| 3 | StyleGAN & Latent Space Editing |
+| 3 | StyleGAN3 & Advanced Latent Editing |
 | 4 | Deepfake Evaluation (FID, LPIPS) |
 | 5 | Diffusion Models (DDPM, Stable Diffusion) |
 | 6 | Deepfake Detection |
 | 7 | Video Generation & Temporal Consistency |
 | 8 | Model Optimization & Deployment |
-| 9 | 3D Face Reconstruction (DECA, FAN) |
+| 9 | 3D Face Reconstruction (DECA, FAN) |1i
 | 10 | Ethics, Bias, and Responsible AI |
 | 11 | Open Source Contribution |
 | 12 | Portfolio Finalization |
@@ -80,7 +80,7 @@ computer-vision-journey/
 
 ---
 
-➡️ **Next**: Month 3 — Study StyleGAN & Latent Space Editing
+➡️ **Next**: Month 3 — StyleGAN3 & Advanced Latent Editing
 
 ## 🔗 Connect With Me
 
