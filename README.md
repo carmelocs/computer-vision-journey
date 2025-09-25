@@ -18,7 +18,7 @@ conda activate cv-journey
 
 🐞 If something breaks: `conda deactivate && conda env remove -n cv-journey` then rebuild.
 
-## 📂 Folder Structure
+## 📂 Folder Structure (*In Progress*)
 
 ```bash
 computer-vision-journey/
@@ -71,7 +71,7 @@ computer-vision-journey/
 
 ---
 
-🟢  **Month 2: In Progress** – 23 Sep 2025  
+✅ **Month 2: Complete** – 23 Sep 2025  
 
 - Built DCGAN from scratch
 - Trained on CIFAR-10 for 20 epochs
@@ -80,7 +80,16 @@ computer-vision-journey/
 
 ---
 
-➡️ **Next**: Month 3 — StyleGAN3 & Advanced Latent Editing
+🟢 **Month 3: In Progress** – 25 sep 2025  
+
+- Trained DCGAN from scratch
+- Built StyleGAN3 pipeline
+- Generating high-res synthetic faces
+- Exploring latent space editing
+
+---
+
+➡️ **Next**: Month 4 — Deepfake Evaluation & Detection
 
 ## 🔗 Connect With Me
 
