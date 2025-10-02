@@ -52,11 +52,11 @@ $$
 
 ### 2. **Modified Loss for Generator**
 
-In practice, train G using:
+In practice, train G to maximize:
 $$
-\mathbb{E}_{z}[\log D(G(z))]
+\log D(G(z))
 $$
-This avoids saturation early in training.
+This avoids saturation (providing much stronger gradients) early in training.
 
 ---
 
