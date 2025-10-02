@@ -1,3 +1,5 @@
+# Deepfake Project Audit
+
 ## 🔍 Gaps & Questions
 
 - How is spectral normalization used in the discriminator?
