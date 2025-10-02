@@ -1,7 +1,7 @@
 # ⚔️ Generative Adversarial Networks (GANs): Fundamentals  
 
-**Author**: Carmelo CS  
-**Date**: April 5, 2025  
+**Author**: Shawn Cheng
+**Date**: 16 Sep 2025  
 **Purpose**: Understand GAN theory for deepfake generation at IDVerse  
 
 ---
