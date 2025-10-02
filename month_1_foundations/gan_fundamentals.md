@@ -1,6 +1,6 @@
 # ⚔️ Generative Adversarial Networks (GANs): Fundamentals  
 
-**Author**: Shawn Cheng
+**Author**: Shawn Cheng  
 **Date**: 16 Sep 2025  
 **Purpose**: Understand GAN theory for deepfake generation at IDVerse  
 
