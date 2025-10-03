@@ -30,7 +30,7 @@ Eventually, the generator produces samples so realistic that the discriminator c
 
 ### Example Flow
 
-```
+```bash
 Noise (z) → [Generator] → Fake Image → [Discriminator] → "Fake"
 Real Image → [Discriminator] → "Real"
 ```
@@ -62,6 +62,8 @@ Let’s define:
 - $f_2(y) = -\log(y)$ → **non-saturating generator loss** (to be **minimized**)
 
 We’ll plot both over $y \in (0, 1)$.
+
+![GAN Generator Loss Functions](output.png)  
 
 #### 🔹 Function 1: $f_1(y) = \log(1 - y)$
 
