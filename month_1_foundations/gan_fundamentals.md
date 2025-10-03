@@ -52,11 +52,51 @@ $$
 
 ### 2. **Modified Loss for Generator**
 
-In practice, train G to maximize:
-$$
-\log D(G(z))
-$$
-This avoids saturation (providing much stronger gradients) early in training.
+In practice, train G to maximize $\log D(G(z))$, i.e., minimize $-\log D(G(z))$. This avoids saturation (providing much stronger gradients) early in training.
+
+#### Explain
+
+Let’s define:
+
+- $f_1(y) = \log(1 - y) $ → **original generator loss** (to be **minimized**)
+- $f_2(y) = -\log(y)$ → **non-saturating generator loss** (to be **minimized**)
+
+We’ll plot both over $y \in (0, 1)$.
+
+#### 🔹 Function 1: $f_1(y) = \log(1 - y)$
+
+| $y (D(G(z)))$ | $f₁(y) = log(1−y)$ | Gradient $f_1'(y) = -\frac{1}{1 - y}$ |
+|-------------|------------------|------------------------------------------|
+| 0.0         | log(1) = 0       | −1.0                                     |
+| 0.1         | ≈ −0.105         | −1.11                                    |
+| 0.5         | ≈ −0.693         | −2.0                                     |
+| 0.9         | ≈ −2.30          | −10.0                                    |
+| 0.99        | ≈ −4.60          | −100                                     |
+
+✅ **Shape**: Starts at 0 when $ y=0 $, decreases slowly at first, then **plunges steeply** as $ y \to 1 $.
+
+➡️ **Key observation**:  
+
+- When the generator is **poor**, $ y = D(G(z)) \approx 0 $.  
+- In this region, $ f_1(y) \approx 0 $, and the curve is **nearly flat**.  
+- Even though the derivative is −1 at y=0, **in practice**, because the discriminator is very confident (outputs near 0), small changes in $ G(z) $ cause **almost no change in y**, so the **effective gradient through the full network is tiny** → **saturation**.
+
+#### 🔹 Function 2: $ f_2(y) = -\log(y) $
+
+| $y (D(G(z)))$ | $f₂(y) = −log(y)$ | Gradient $ f_2'(y) = -\frac{1}{y} $ |
+|-------------|------------------|--------------------------------------|
+| 0.01        | ≈ 4.60           | −100                                 |
+| 0.1         | ≈ 2.30           | −10                                  |
+| 0.5         | ≈ 0.693          | −2.0                                 |
+| 0.9         | ≈ 0.105          | −1.11                                |
+| 1.0         | 0                | −1.0                                 |
+
+✅ **Shape**: Starts at **+∞** when $ y \to 0^+ $, decreases **steeply** at first, then flattens as $ y \to 1 $.
+
+➡️ **Key observation**:  
+
+- When the generator is **poor** ($ y \approx 0 $), the loss is **very large**, and the gradient is **very strong** (e.g., −100 at y=0.01).  
+- This gives the generator a **powerful learning signal**: “You’re failing badly—adjust your weights significantly!”
 
 ---
 
