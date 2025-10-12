@@ -1,0 +1,381 @@
+ID,Title,Abstract,Published Date,Updated Date,Author names,DOI,Journal Reference,Primary Category,Categories,Link,PDF Link
+http://arxiv.org/abs/2508.20595v1,"Disruptive Attacks on Face Swapping via Low-Frequency Perceptual
+  Perturbations","Deepfake technology, driven by Generative Adversarial Networks (GANs), poses
+significant risks to privacy and societal security. Existing detection methods
+are predominantly passive, focusing on post-event analysis without preventing
+attacks. To address this, we propose an active defense method based on
+low-frequency perceptual perturbations to disrupt face swapping manipulation,
+reducing the performance and naturalness of generated content. Unlike prior
+approaches that used low-frequency perturbations to impact classification
+accuracy,our method directly targets the generative process of deepfake
+techniques. We combine frequency and spatial domain features to strengthen
+defenses. By introducing artifacts through low-frequency perturbations while
+preserving high-frequency details, we ensure the output remains visually
+plausible. Additionally, we design a complete architecture featuring an
+encoder, a perturbation generator, and a decoder, leveraging discrete wavelet
+transform (DWT) to extract low-frequency components and generate perturbations
+that disrupt facial manipulation models. Experiments on CelebA-HQ and LFW
+demonstrate significant reductions in face-swapping effectiveness, improved
+defense success rates, and preservation of visual quality.",2025-08-28T09:34:53Z,2025-08-28T09:34:53Z,"Mengxiao Huang, Minglei Shu, Shuwang Zhou, Zhaoyang Liu",,,cs.CV,cs.CV,http://arxiv.org/abs/2508.20595v1,http://arxiv.org/pdf/2508.20595v1
+http://arxiv.org/abs/2508.17247v1,"Uncovering and Mitigating Destructive Multi-Embedding Attacks in
+  Deepfake Proactive Forensics","With the rapid evolution of deepfake technologies and the wide dissemination
+of digital media, personal privacy is facing increasingly serious security
+threats. Deepfake proactive forensics, which involves embedding imperceptible
+watermarks to enable reliable source tracking, serves as a crucial defense
+against these threats. Although existing methods show strong forensic ability,
+they rely on an idealized assumption of single watermark embedding, which
+proves impractical in real-world scenarios. In this paper, we formally define
+and demonstrate the existence of Multi-Embedding Attacks (MEA) for the first
+time. When a previously protected image undergoes additional rounds of
+watermark embedding, the original forensic watermark can be destroyed or
+removed, rendering the entire proactive forensic mechanism ineffective. To
+address this vulnerability, we propose a general training paradigm named
+Adversarial Interference Simulation (AIS). Rather than modifying the network
+architecture, AIS explicitly simulates MEA scenarios during fine-tuning and
+introduces a resilience-driven loss function to enforce the learning of sparse
+and stable watermark representations. Our method enables the model to maintain
+the ability to extract the original watermark correctly even after a second
+embedding. Extensive experiments demonstrate that our plug-and-play AIS
+training paradigm significantly enhances the robustness of various existing
+methods against MEA.",2025-08-24T07:57:32Z,2025-08-24T07:57:32Z,"Lixin Jia, Haiyang Sun, Zhiqing Guo, Yunfeng Diao, Dan Ma, Gaobo Yang",,,cs.CV,cs.CV,http://arxiv.org/abs/2508.17247v1,http://arxiv.org/pdf/2508.17247v1
+http://arxiv.org/abs/2508.10949v1,"Perturbed Public Voices (P$^{2}$V): A Dataset for Robust Audio Deepfake
+  Detection","Current audio deepfake detectors cannot be trusted. While they excel on
+controlled benchmarks, they fail when tested in the real world. We introduce
+Perturbed Public Voices (P$^{2}$V), an IRB-approved dataset capturing three
+critical aspects of malicious deepfakes: (1) identity-consistent transcripts
+via LLMs, (2) environmental and adversarial noise, and (3) state-of-the-art
+voice cloning (2020-2025). Experiments reveal alarming vulnerabilities of 22
+recent audio deepfake detectors: models trained on current datasets lose 43%
+performance when tested on P$^{2}$V, with performance measured as the mean of
+F1 score on deepfake audio, AUC, and 1-EER. Simple adversarial perturbations
+induce up to 16% performance degradation, while advanced cloning techniques
+reduce detectability by 20-30%. In contrast, P$^{2}$V-trained models maintain
+robustness against these attacks while generalizing to existing datasets,
+establishing a new benchmark for robust audio deepfake detection. P$^{2}$V will
+be publicly released upon acceptance by a conference/journal.",2025-08-13T17:54:55Z,2025-08-13T17:54:55Z,"Chongyang Gao, Marco Postiglione, Isabel Gortner, Sarit Kraus, V. S. Subrahmanian",,,cs.SD,"cs.SD, eess.AS",http://arxiv.org/abs/2508.10949v1,http://arxiv.org/pdf/2508.10949v1
+http://arxiv.org/abs/2508.07596v1,"From Prediction to Explanation: Multimodal, Explainable, and Interactive
+  Deepfake Detection Framework for Non-Expert Users","The proliferation of deepfake technologies poses urgent challenges and
+serious risks to digital integrity, particularly within critical sectors such
+as forensics, journalism, and the legal system. While existing detection
+systems have made significant progress in classification accuracy, they
+typically function as black-box models, offering limited transparency and
+minimal support for human reasoning. This lack of interpretability hinders
+their usability in real-world decision-making contexts, especially for
+non-expert users. In this paper, we present DF-P2E (Deepfake: Prediction to
+Explanation), a novel multimodal framework that integrates visual, semantic,
+and narrative layers of explanation to make deepfake detection interpretable
+and accessible. The framework consists of three modular components: (1) a
+deepfake classifier with Grad-CAM-based saliency visualisation, (2) a visual
+captioning module that generates natural language summaries of manipulated
+regions, and (3) a narrative refinement module that uses a fine-tuned Large
+Language Model (LLM) to produce context-aware, user-sensitive explanations. We
+instantiate and evaluate the framework on the DF40 benchmark, the most diverse
+deepfake dataset to date. Experiments demonstrate that our system achieves
+competitive detection performance while providing high-quality explanations
+aligned with Grad-CAM activations. By unifying prediction and explanation in a
+coherent, human-aligned pipeline, this work offers a scalable approach to
+interpretable deepfake detection, advancing the broader vision of trustworthy
+and transparent AI systems in adversarial media environments.",2025-08-11T03:55:47Z,2025-08-11T03:55:47Z,"Shahroz Tariq, Simon S. Woo, Priyanka Singh, Irena Irmalasari, Saakshi Gupta, Dev Gupta",10.1145/3746027.3755786,,cs.CV,cs.CV,http://arxiv.org/abs/2508.07596v1,http://arxiv.org/pdf/2508.07596v1
+http://arxiv.org/abs/2508.03067v1,Untraceable DeepFakes via Traceable Fingerprint Elimination,"Recent advancements in DeepFakes attribution technologies have significantly
+enhanced forensic capabilities, enabling the extraction of traces left by
+generative models (GMs) in images, making DeepFakes traceable back to their
+source GMs. Meanwhile, several attacks have attempted to evade attribution
+models (AMs) for exploring their limitations, calling for more robust AMs.
+However, existing attacks fail to eliminate GMs' traces, thus can be mitigated
+by defensive measures. In this paper, we identify that untraceable DeepFakes
+can be achieved through a multiplicative attack, which can fundamentally
+eliminate GMs' traces, thereby evading AMs even enhanced with defensive
+measures. We design a universal and black-box attack method that trains an
+adversarial model solely using real data, applicable for various GMs and
+agnostic to AMs. Experimental results demonstrate the outstanding attack
+capability and universal applicability of our method, achieving an average
+attack success rate (ASR) of 97.08\% against 6 advanced AMs on DeepFakes
+generated by 9 GMs. Even in the presence of defensive mechanisms, our method
+maintains an ASR exceeding 72.39\%. Our work underscores the potential
+challenges posed by multiplicative attacks and highlights the need for more
+robust AMs.",2025-08-05T04:27:57Z,2025-08-05T04:27:57Z,"Jiewei Lai, Lan Zhang, Chen Tang, Pengcheng Sun, Xinming Wang, Yunhao Wang",,,cs.CR,"cs.CR, cs.AI",http://arxiv.org/abs/2508.03067v1,http://arxiv.org/pdf/2508.03067v1
+http://arxiv.org/abs/2507.22398v3,"On the Reliability of Vision-Language Models Under Adversarial
+  Frequency-Domain Perturbations","Vision-Language Models (VLMs) are increasingly used as perceptual modules for
+visual content reasoning, including through captioning and DeepFake detection.
+In this work, we expose a critical vulnerability of VLMs when exposed to
+subtle, structured perturbations in the frequency domain. Specifically, we
+highlight how these feature transformations undermine authenticity/DeepFake
+detection and automated image captioning tasks. We design targeted image
+transformations, operating in the frequency domain to systematically adjust VLM
+outputs when exposed to frequency-perturbed real and synthetic images. We
+demonstrate that the perturbation injection method generalizes across five
+state-of-the-art VLMs which includes different-parameter Qwen2/2.5 and BLIP
+models. Experimenting across ten real and generated image datasets reveals that
+VLM judgments are sensitive to frequency-based cues and may not wholly align
+with semantic content. Crucially, we show that visually-imperceptible spatial
+frequency transformations expose the fragility of VLMs deployed for automated
+image captioning and authenticity detection tasks. Our findings under
+realistic, black-box constraints challenge the reliability of VLMs,
+underscoring the need for robust multimodal perception systems.",2025-07-30T05:41:29Z,2025-08-13T01:15:41Z,"Jordan Vice, Naveed Akhtar, Yansong Gao, Richard Hartley, Ajmal Mian",,,cs.CV,cs.CV,http://arxiv.org/abs/2507.22398v3,http://arxiv.org/pdf/2507.22398v3
+http://arxiv.org/abs/2507.21157v1,"Unmasking Synthetic Realities in Generative AI: A Comprehensive Review
+  of Adversarially Robust Deepfake Detection Systems","The rapid advancement of Generative Artificial Intelligence has fueled
+deepfake proliferation-synthetic media encompassing fully generated content and
+subtly edited authentic material-posing challenges to digital security,
+misinformation mitigation, and identity preservation. This systematic review
+evaluates state-of-the-art deepfake detection methodologies, emphasizing
+reproducible implementations for transparency and validation. We delineate two
+core paradigms: (1) detection of fully synthetic media leveraging statistical
+anomalies and hierarchical feature extraction, and (2) localization of
+manipulated regions within authentic content employing multi-modal cues such as
+visual artifacts and temporal inconsistencies. These approaches, spanning
+uni-modal and multi-modal frameworks, demonstrate notable precision and
+adaptability in controlled settings, effectively identifying manipulations
+through advanced learning techniques and cross-modal fusion. However,
+comprehensive assessment reveals insufficient evaluation of adversarial
+robustness across both paradigms. Current methods exhibit vulnerability to
+adversarial perturbations-subtle alterations designed to evade
+detection-undermining reliability in real-world adversarial contexts. This gap
+highlights critical disconnect between methodological development and evolving
+threat landscapes. To address this, we contribute a curated GitHub repository
+aggregating open-source implementations, enabling replication and testing. Our
+findings emphasize urgent need for future work prioritizing adversarial
+resilience, advocating scalable, modality-agnostic architectures capable of
+withstanding sophisticated manipulations. This review synthesizes strengths and
+shortcomings of contemporary deepfake detection while charting paths toward
+robust trustworthy systems.",2025-07-24T22:05:52Z,2025-07-24T22:05:52Z,"Naseem Khan, Tuan Nguyen, Amine Bermak, Issa Khalil",,,cs.CR,"cs.CR, cs.CV, F.2.2; I.2.7",http://arxiv.org/abs/2507.21157v1,http://arxiv.org/pdf/2507.21157v1
+http://arxiv.org/abs/2507.13170v1,"SHIELD: A Secure and Highly Enhanced Integrated Learning for Robust
+  Deepfake Detection against Adversarial Attacks","Audio plays a crucial role in applications like speaker verification,
+voice-enabled smart devices, and audio conferencing. However, audio
+manipulations, such as deepfakes, pose significant risks by enabling the spread
+of misinformation. Our empirical analysis reveals that existing methods for
+detecting deepfake audio are often vulnerable to anti-forensic (AF) attacks,
+particularly those attacked using generative adversarial networks. In this
+article, we propose a novel collaborative learning method called SHIELD to
+defend against generative AF attacks. To expose AF signatures, we integrate an
+auxiliary generative model, called the defense (DF) generative model, which
+facilitates collaborative learning by combining input and output. Furthermore,
+we design a triplet model to capture correlations for real and AF attacked
+audios with real-generated and attacked-generated audios using auxiliary
+generative models. The proposed SHIELD strengthens the defense against
+generative AF attacks and achieves robust performance across various generative
+models. The proposed AF significantly reduces the average detection accuracy
+from 95.49% to 59.77% for ASVspoof2019, from 99.44% to 38.45% for In-the-Wild,
+and from 98.41% to 51.18% for HalfTruth for three different generative models.
+The proposed SHIELD mechanism is robust against AF attacks and achieves an
+average accuracy of 98.13%, 98.58%, and 99.57% in match, and 98.78%, 98.62%,
+and 98.85% in mismatch settings for the ASVspoof2019, In-the-Wild, and
+HalfTruth datasets, respectively.",2025-07-17T14:33:54Z,2025-07-17T14:33:54Z,"Kutub Uddin, Awais Khan, Muhammad Umar Farooq, Khalid Malik",,,cs.SD,"cs.SD, cs.AI, cs.CR, cs.LG, eess.AS",http://arxiv.org/abs/2507.13170v1,http://arxiv.org/pdf/2507.13170v1
+http://arxiv.org/abs/2507.01428v1,DiffMark: Diffusion-based Robust Watermark Against Deepfakes,"Deepfakes pose significant security and privacy threats through malicious
+facial manipulations. While robust watermarking can aid in authenticity
+verification and source tracking, existing methods often lack the sufficient
+robustness against Deepfake manipulations. Diffusion models have demonstrated
+remarkable performance in image generation, enabling the seamless fusion of
+watermark with image during generation. In this study, we propose a novel
+robust watermarking framework based on diffusion model, called DiffMark. By
+modifying the training and sampling scheme, we take the facial image and
+watermark as conditions to guide the diffusion model to progressively denoise
+and generate corresponding watermarked image. In the construction of facial
+condition, we weight the facial image by a timestep-dependent factor that
+gradually reduces the guidance intensity with the decrease of noise, thus
+better adapting to the sampling process of diffusion model. To achieve the
+fusion of watermark condition, we introduce a cross information fusion (CIF)
+module that leverages a learnable embedding table to adaptively extract
+watermark features and integrates them with image features via cross-attention.
+To enhance the robustness of the watermark against Deepfake manipulations, we
+integrate a frozen autoencoder during training phase to simulate Deepfake
+manipulations. Additionally, we introduce Deepfake-resistant guidance that
+employs specific Deepfake model to adversarially guide the diffusion sampling
+process to generate more robust watermarked images. Experimental results
+demonstrate the effectiveness of the proposed DiffMark on typical Deepfakes.
+Our code will be available at https://github.com/vpsg-research/DiffMark.",2025-07-02T07:29:33Z,2025-07-02T07:29:33Z,"Chen Sun, Haiyang Sun, Zhiqing Guo, Yunfeng Diao, Liejun Wang, Dan Ma, Gaobo Yang, Keqin Li",,,cs.CV,"cs.CV, eess.IV",http://arxiv.org/abs/2507.01428v1,http://arxiv.org/pdf/2507.01428v1
+http://arxiv.org/abs/2506.23676v1,"A Unified Framework for Stealthy Adversarial Generation via Latent
+  Optimization and Transferability Enhancement","Due to their powerful image generation capabilities, diffusion-based
+adversarial example generation methods through image editing are rapidly
+gaining popularity. However, due to reliance on the discriminative capability
+of the diffusion model, these diffusion-based methods often struggle to
+generalize beyond conventional image classification tasks, such as in Deepfake
+detection. Moreover, traditional strategies for enhancing adversarial example
+transferability are challenging to adapt to these methods. To address these
+challenges, we propose a unified framework that seamlessly incorporates
+traditional transferability enhancement strategies into diffusion model-based
+adversarial example generation via image editing, enabling their application
+across a wider range of downstream tasks. Our method won first place in the
+""1st Adversarial Attacks on Deepfake Detectors: A Challenge in the Era of
+AI-Generated Media"" competition at ACM MM25, which validates the effectiveness
+of our approach.",2025-06-30T09:59:09Z,2025-06-30T09:59:09Z,"Gaozheng Pei, Ke Ma, Dongpeng Zhang, Chengzhi Sun, Qianqian Xu, Qingming Huang",,,cs.CV,cs.CV,http://arxiv.org/abs/2506.23676v1,http://arxiv.org/pdf/2506.23676v1
+http://arxiv.org/abs/2506.20548v1,"Pay Less Attention to Deceptive Artifacts: Robust Detection of
+  Compressed Deepfakes on Online Social Networks","With the rapid advancement of deep learning, particularly through generative
+adversarial networks (GANs) and diffusion models (DMs), AI-generated images, or
+``deepfakes"", have become nearly indistinguishable from real ones. These images
+are widely shared across Online Social Networks (OSNs), raising concerns about
+their misuse. Existing deepfake detection methods overlook the ``block effects""
+introduced by compression in OSNs, which obscure deepfake artifacts, and
+primarily focus on raw images, rarely encountered in real-world scenarios. To
+address these challenges, we propose PLADA (Pay Less Attention to Deceptive
+Artifacts), a novel framework designed to tackle the lack of paired data and
+the ineffective use of compressed images. PLADA consists of two core modules:
+Block Effect Eraser (B2E), which uses a dual-stage attention mechanism to
+handle block effects, and Open Data Aggregation (ODA), which processes both
+paired and unpaired data to improve detection. Extensive experiments across 26
+datasets demonstrate that PLADA achieves a remarkable balance in deepfake
+detection, outperforming SoTA methods in detecting deepfakes on OSNs, even with
+limited paired data and compression. More importantly, this work introduces the
+``block effect"" as a critical factor in deepfake detection, providing a robust
+solution for open-world scenarios. Our code is available at
+https://github.com/ManyiLee/PLADA.",2025-06-25T15:46:41Z,2025-06-25T15:46:41Z,"Manyi Li, Renshuai Tao, Yufan Liu, Chuangchuang Tan, Haotong Qin, Bing Li, Yunchao Wei, Yao Zhao",,,cs.CV,"cs.CV, cs.AI, cs.LG, cs.MM",http://arxiv.org/abs/2506.20548v1,http://arxiv.org/pdf/2506.20548v1
+http://arxiv.org/abs/2506.14398v1,"A Comparative Study on Proactive and Passive Detection of Deepfake
+  Speech","Solutions for defending against deepfake speech fall into two categories:
+proactive watermarking models and passive conventional deepfake detectors.
+While both address common threats, their differences in training, optimization,
+and evaluation prevent a unified protocol for joint evaluation and selecting
+the best solutions for different cases. This work proposes a framework to
+evaluate both model types in deepfake speech detection. To ensure fair
+comparison and minimize discrepancies, all models were trained and tested on
+common datasets, with performance evaluated using a shared metric. We also
+analyze their robustness against various adversarial attacks, showing that
+different models exhibit distinct vulnerabilities to different speech attribute
+distortions. Our training and evaluation code is available at Github.",2025-06-17T10:54:08Z,2025-06-17T10:54:08Z,"Chia-Hua Wu, Wanying Ge, Xin Wang, Junichi Yamagishi, Yu Tsao, Hsin-Min Wang",,,cs.SD,cs.SD,http://arxiv.org/abs/2506.14398v1,http://arxiv.org/pdf/2506.14398v1
+http://arxiv.org/abs/2506.05538v1,"SocialDF: Benchmark Dataset and Detection Model for Mitigating Harmful
+  Deepfake Content on Social Media Platforms","The rapid advancement of deep generative models has significantly improved
+the realism of synthetic media, presenting both opportunities and security
+challenges. While deepfake technology has valuable applications in
+entertainment and accessibility, it has emerged as a potent vector for
+misinformation campaigns, particularly on social media. Existing detection
+frameworks struggle to distinguish between benign and adversarially generated
+deepfakes engineered to manipulate public perception. To address this
+challenge, we introduce SocialDF, a curated dataset reflecting real-world
+deepfake challenges on social media platforms. This dataset encompasses
+high-fidelity deepfakes sourced from various online ecosystems, ensuring broad
+coverage of manipulative techniques. We propose a novel LLM-based multi-factor
+detection approach that combines facial recognition, automated speech
+transcription, and a multi-agent LLM pipeline to cross-verify audio-visual
+cues. Our methodology emphasizes robust, multi-modal verification techniques
+that incorporate linguistic, behavioral, and contextual analysis to effectively
+discern synthetic media from authentic content.",2025-06-05T19:39:28Z,2025-06-05T19:39:28Z,"Arnesh Batra, Anushk Kumar, Jashn Khemani, Arush Gumber, Arhan Jain, Somil Gupta",,,cs.LG,"cs.LG, cs.MM",http://arxiv.org/abs/2506.05538v1,http://arxiv.org/pdf/2506.05538v1
+http://arxiv.org/abs/2505.18035v1,"CAMME: Adaptive Deepfake Image Detection with Multi-Modal
+  Cross-Attention","The proliferation of sophisticated AI-generated deepfakes poses critical
+challenges for digital media authentication and societal security. While
+existing detection methods perform well within specific generative domains,
+they exhibit significant performance degradation when applied to manipulations
+produced by unseen architectures--a fundamental limitation as generative
+technologies rapidly evolve. We propose CAMME (Cross-Attention Multi-Modal
+Embeddings), a framework that dynamically integrates visual, textual, and
+frequency-domain features through a multi-head cross-attention mechanism to
+establish robust cross-domain generalization. Extensive experiments demonstrate
+CAMME's superiority over state-of-the-art methods, yielding improvements of
+12.56% on natural scenes and 13.25% on facial deepfakes. The framework
+demonstrates exceptional resilience, maintaining (over 91%) accuracy under
+natural image perturbations and achieving 89.01% and 96.14% accuracy against
+PGD and FGSM adversarial attacks, respectively. Our findings validate that
+integrating complementary modalities through cross-attention enables more
+effective decision boundary realignment for reliable deepfake detection across
+heterogeneous generative architectures.",2025-05-23T15:39:07Z,2025-05-23T15:39:07Z,"Naseem Khan, Tuan Nguyen, Amine Bermak, Issa Khalil",,,cs.CV,"cs.CV, F.2.2; I.2.7",http://arxiv.org/abs/2505.18035v1,http://arxiv.org/pdf/2505.18035v1
+http://arxiv.org/abs/2505.17513v1,"What You Read Isn't What You Hear: Linguistic Sensitivity in Deepfake
+  Speech Detection","Recent advances in text-to-speech technologies have enabled realistic voice
+generation, fueling audio-based deepfake attacks such as fraud and
+impersonation. While audio anti-spoofing systems are critical for detecting
+such threats, prior work has predominantly focused on acoustic-level
+perturbations, leaving the impact of linguistic variation largely unexplored.
+In this paper, we investigate the linguistic sensitivity of both open-source
+and commercial anti-spoofing detectors by introducing transcript-level
+adversarial attacks. Our extensive evaluation reveals that even minor
+linguistic perturbations can significantly degrade detection accuracy: attack
+success rates surpass 60% on several open-source detector-voice pairs, and
+notably one commercial detection accuracy drops from 100% on synthetic audio to
+just 32%. Through a comprehensive feature attribution analysis, we identify
+that both linguistic complexity and model-level audio embedding similarity
+contribute strongly to detector vulnerability. We further demonstrate the
+real-world risk via a case study replicating the Brad Pitt audio deepfake scam,
+using transcript adversarial attacks to completely bypass commercial detectors.
+These results highlight the need to move beyond purely acoustic defenses and
+account for linguistic variation in the design of robust anti-spoofing systems.
+All source code will be publicly available.",2025-05-23T06:06:37Z,2025-05-23T06:06:37Z,"Binh Nguyen, Shuji Shi, Ryan Ofman, Thai Le",,,cs.LG,"cs.LG, cs.CL, cs.SD, eess.AS, 53-04",http://arxiv.org/abs/2505.17513v1,http://arxiv.org/pdf/2505.17513v1
+http://arxiv.org/abs/2505.15336v1,"My Face Is Mine, Not Yours: Facial Protection Against Diffusion Model
+  Face Swapping","The proliferation of diffusion-based deepfake technologies poses significant
+risks for unauthorized and unethical facial image manipulation. While
+traditional countermeasures have primarily focused on passive detection
+methods, this paper introduces a novel proactive defense strategy through
+adversarial attacks that preemptively protect facial images from being
+exploited by diffusion-based deepfake systems. Existing adversarial protection
+methods predominantly target conventional generative architectures (GANs, AEs,
+VAEs) and fail to address the unique challenges presented by diffusion models,
+which have become the predominant framework for high-quality facial deepfakes.
+Current diffusion-specific adversarial approaches are limited by their reliance
+on specific model architectures and weights, rendering them ineffective against
+the diverse landscape of diffusion-based deepfake implementations.
+Additionally, they typically employ global perturbation strategies that
+inadequately address the region-specific nature of facial manipulation in
+deepfakes.",2025-05-21T10:07:46Z,2025-05-21T10:07:46Z,"Hon Ming Yam, Zhongliang Guo, Chun Pong Lau",,,cs.CV,cs.CV,http://arxiv.org/abs/2505.15336v1,http://arxiv.org/pdf/2505.15336v1
+http://arxiv.org/abs/2505.12339v1,"Towards Open-world Generalized Deepfake Detection: General Feature
+  Extraction via Unsupervised Domain Adaptation","With the development of generative artificial intelligence, new forgery
+methods are rapidly emerging. Social platforms are flooded with vast amounts of
+unlabeled synthetic data and authentic data, making it increasingly challenging
+to distinguish real from fake. Due to the lack of labels, existing supervised
+detection methods struggle to effectively address the detection of unknown
+deepfake methods. Moreover, in open world scenarios, the amount of unlabeled
+data greatly exceeds that of labeled data. Therefore, we define a new deepfake
+detection generalization task which focuses on how to achieve efficient
+detection of large amounts of unlabeled data based on limited labeled data to
+simulate a open world scenario. To solve the above mentioned task, we propose a
+novel Open-World Deepfake Detection Generalization Enhancement Training
+Strategy (OWG-DS) to improve the generalization ability of existing methods.
+Our approach aims to transfer deepfake detection knowledge from a small amount
+of labeled source domain data to large-scale unlabeled target domain data.
+Specifically, we introduce the Domain Distance Optimization (DDO) module to
+align different domain features by optimizing both inter-domain and
+intra-domain distances. Additionally, the Similarity-based Class Boundary
+Separation (SCBS) module is used to enhance the aggregation of similar samples
+to ensure clearer class boundaries, while an adversarial training mechanism is
+adopted to learn the domain-invariant features. Extensive experiments show that
+the proposed deepfake detection generalization enhancement training strategy
+excels in cross-method and cross-dataset scenarios, improving the model's
+generalization.",2025-05-18T10:12:12Z,2025-05-18T10:12:12Z,"Midou Guo, Qilin Yin, Wei Lu, Xiangyang Luo",,,cs.CV,"cs.CV, cs.AI",http://arxiv.org/abs/2505.12339v1,http://arxiv.org/pdf/2505.12339v1
+http://arxiv.org/abs/2505.11110v1,"Deepfake Forensic Analysis: Source Dataset Attribution and Legal
+  Implications of Synthetic Media Manipulation","Synthetic media generated by Generative Adversarial Networks (GANs) pose
+significant challenges in verifying authenticity and tracing dataset origins,
+raising critical concerns in copyright enforcement, privacy protection, and
+legal compliance. This paper introduces a novel forensic framework for
+identifying the training dataset (e.g., CelebA or FFHQ) of GAN-generated images
+through interpretable feature analysis. By integrating spectral transforms
+(Fourier/DCT), color distribution metrics, and local feature descriptors
+(SIFT), our pipeline extracts discriminative statistical signatures embedded in
+synthetic outputs. Supervised classifiers (Random Forest, SVM, XGBoost) achieve
+98-99% accuracy in binary classification (real vs. synthetic) and multi-class
+dataset attribution across diverse GAN architectures (StyleGAN, AttGAN, GDWCT,
+StarGAN, and StyleGAN2). Experimental results highlight the dominance of
+frequency-domain features (DCT/FFT) in capturing dataset-specific artifacts,
+such as upsampling patterns and spectral irregularities, while color histograms
+reveal implicit regularization strategies in GAN training. We further examine
+legal and ethical implications, showing how dataset attribution can address
+copyright infringement, unauthorized use of personal data, and regulatory
+compliance under frameworks like GDPR and California's AB 602. Our framework
+advances accountability and governance in generative modeling, with
+applications in digital forensics, content moderation, and intellectual
+property litigation.",2025-05-16T10:47:18Z,2025-05-16T10:47:18Z,"Massimiliano Cassia, Luca Guarnera, Mirko Casu, Ignazio Zangara, Sebastiano Battiato",,,cs.CV,cs.CV,http://arxiv.org/abs/2505.11110v1,http://arxiv.org/pdf/2505.11110v1
+http://arxiv.org/abs/2505.08552v1,"DFA-CON: A Contrastive Learning Approach for Detecting Copyright
+  Infringement in DeepFake Art","Recent proliferation of generative AI tools for visual content
+creation-particularly in the context of visual artworks-has raised serious
+concerns about copyright infringement and forgery. The large-scale datasets
+used to train these models often contain a mixture of copyrighted and
+non-copyrighted artworks. Given the tendency of generative models to memorize
+training patterns, they are susceptible to varying degrees of copyright
+violation. Building on the recently proposed DeepfakeArt Challenge benchmark,
+this work introduces DFA-CON, a contrastive learning framework designed to
+detect copyright-infringing or forged AI-generated art. DFA-CON learns a
+discriminative representation space, posing affinity among original artworks
+and their forged counterparts within a contrastive learning framework. The
+model is trained across multiple attack types, including inpainting, style
+transfer, adversarial perturbation, and cutmix. Evaluation results demonstrate
+robust detection performance across most attack types, outperforming recent
+pretrained foundation models. Code and model checkpoints will be released
+publicly upon acceptance.",2025-05-13T13:23:52Z,2025-05-13T13:23:52Z,"Haroon Wahab, Hassan Ugail, Irfan Mehmood",,,cs.CV,"cs.CV, cs.AI, cs.LG",http://arxiv.org/abs/2505.08552v1,http://arxiv.org/pdf/2505.08552v1
+http://arxiv.org/abs/2505.02182v1,Robust AI-Generated Face Detection with Imbalanced Data,"Deepfakes, created using advanced AI techniques such as Variational
+Autoencoder and Generative Adversarial Networks, have evolved from research and
+entertainment applications into tools for malicious activities, posing
+significant threats to digital trust. Current deepfake detection techniques
+have evolved from CNN-based methods focused on local artifacts to more advanced
+approaches using vision transformers and multimodal models like CLIP, which
+capture global anomalies and improve cross-domain generalization. Despite
+recent progress, state-of-the-art deepfake detectors still face major
+challenges in handling distribution shifts from emerging generative models and
+addressing severe class imbalance between authentic and fake samples in
+deepfake datasets, which limits their robustness and detection accuracy. To
+address these challenges, we propose a framework that combines dynamic loss
+reweighting and ranking-based optimization, which achieves superior
+generalization and performance under imbalanced dataset conditions. The code is
+available at https://github.com/Purdue-M2/SP_CUP.",2025-05-04T17:02:10Z,2025-05-04T17:02:10Z,"Yamini Sri Krubha, Aryana Hou, Braden Vester, Web Walker, Xin Wang, Li Lin, Shu Hu",,,cs.CV,cs.CV,http://arxiv.org/abs/2505.02182v1,http://arxiv.org/pdf/2505.02182v1
