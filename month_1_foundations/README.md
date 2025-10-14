@@ -58,7 +58,7 @@ In practice, train G to maximize $\log D(G(z))$, i.e., minimize $-\log D(G(z))$.
 
 Let’s define:
 
-- $f_1(y) = \log(1 - y) $ → **original generator loss** (to be **minimized**)
+- $f_1(y) = \log(1 - y)$ → **original generator loss** (to be **minimized**)
 - $f_2(y) = -\log(y)$ → **non-saturating generator loss** (to be **minimized**)
 
 We’ll plot both over $y \in (0, 1)$.
@@ -75,7 +75,7 @@ We’ll plot both over $y \in (0, 1)$.
 | 0.9         | ≈ −2.30          | −10.0                                    |
 | 0.99        | ≈ −4.60          | −100                                     |
 
-✅ **Shape**: Starts at 0 when $ y=0 $, decreases slowly at first, then **plunges steeply** as $ y \to 1 $.
+✅ **Shape**: Starts at 0 when $y=0$, decreases slowly at first, then **plunges steeply** as $ y \to 1 $.
 
 ➡️ **Key observation**:  
 
