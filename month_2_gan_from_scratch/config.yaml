@@ -18,4 +18,4 @@ num_epochs: 20
 print_every: 100  # Print loss every N batches
 sample_every: 5   # Save sample images every N epochs
 save_dir: "samples"
-model_save_dir: "models"
+model_save_dir: "checkpoints"
