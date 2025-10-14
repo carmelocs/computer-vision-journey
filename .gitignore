@@ -210,6 +210,7 @@ __marimo__/
 
 # Images, Checkpoints and Training logs in Folder: month_2_gan_from_scratch
 month_2_gan_from_scratch/data
-month_2_gan_from_scratch/models
+# month_2_gan_from_scratch/models
 # month_2_gan_from_scratch/samples
 month_2_gan_from_scratch/wandb
+month_2_gan_from_scratch/checkpoints
