@@ -5,7 +5,7 @@
 - Understand GAN architecture at code level
 - Implement Generator and Discriminator in PyTorch
 - Simulate training loop logic
-- Prepare for real training on CelebA / CIFAR-10
+- Prepare for real training on CIFAR-10 / CelebA
 
 ## Files
 
