@@ -33,7 +33,7 @@ loss_G = adv_loss + λ₁ * perceptual_loss + λ₂ * identity_loss
 - Optimizer: Adam (β₁=0.0, β₂=0.99)
 - Learning Rate: 0.002
 - Total Steps: ~150k
-- Hardware: 4x A100 (estimated)
+- Hardware: 1x NVIDIA RTX 5000 Ada
 
 ## 📊 Evaluation Metrics
 
