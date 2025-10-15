@@ -45,7 +45,7 @@ transform = transforms.Compose([
 dataset = torchvision.datasets.CelebA(
     root="./data",
     split="all",
-    download=True,  # First run will download (~1.4GB)
+    download=False,  # First run will download (~1.4GB)
     transform=transform
 )
 
