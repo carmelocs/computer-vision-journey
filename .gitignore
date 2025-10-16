@@ -214,3 +214,4 @@ month_2_gan_from_scratch/data
 # month_2_gan_from_scratch/samples
 month_2_gan_from_scratch/wandb
 month_2_gan_from_scratch/checkpoints
+month_2_gan_from_scratch/samples/celeba
