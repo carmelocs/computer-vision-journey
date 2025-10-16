@@ -17,7 +17,7 @@ import matplotlib.pyplot as plt
 # ----------------------------
 config = {
     "epochs": 20,
-    "batch_size": 64,
+    "batch_size": 128,
     "lr": 0.0002,
     "z_dim": 100,
     "img_size": 64,
@@ -45,7 +45,7 @@ transform = transforms.Compose([
 dataset = torchvision.datasets.CelebA(
     root="./data",
     split="all",
-    download=False,  # First run will download (~1.4GB)
+    download=True,  # First run will download (~1.4GB). Or manually download: https://drive.google.com/uc?id=0B7EVK8r0v71pZjFTYXZWM3FlRnM
     transform=transform
 )
 
@@ -133,7 +133,7 @@ for epoch in range(config.epochs):
     plt.figure(figsize=(8,8))
     plt.imshow(grid_img.permute(1, 2, 0))
     plt.axis("off")
-    plt.savefig(f"outputs/samples/epoch_{epoch+1:03d}.png", bbox_inches="tight")
+    plt.savefig(f"samples/celeba/epoch_{epoch+1:03d}.png", bbox_inches="tight")
     plt.close()
 
     # Log to W&B
