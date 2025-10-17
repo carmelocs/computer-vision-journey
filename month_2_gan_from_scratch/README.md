@@ -28,3 +28,14 @@ To compute FID fairly, we resize real CelebA images to match generator output (6
 ```bash
 python resize_celeba.py
 pytorch-fid ./outputs/fid_generated/ ./data/celeba_64x64/ --device cuda
+```
+
+## FID After Resizing Real Images to 64x64
+
+- Generated: 5,000 × 64x64
+- Real: 202,599 × 64x64 (resized from 178x218)
+- FID: **123**
+
+## Interpretation
+
+This is expected for a 20-epoch DCGAN. Next step: train for 50–100 epochs to reduce FID below 60.
