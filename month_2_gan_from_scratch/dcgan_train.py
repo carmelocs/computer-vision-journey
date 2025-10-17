@@ -5,6 +5,7 @@ import torch.nn as nn
 import torch.optim as optim
 import torchvision
 import torchvision.transforms as transforms
+import torchvision.datasets as datasets
 from torch.utils.data import DataLoader
 from models.generator import Generator
 from models.discriminator import Discriminator
@@ -16,11 +17,11 @@ import matplotlib.pyplot as plt
 # Config
 # ----------------------------
 config = {
-    "epochs": 20,
+    "epochs": 1,
     "batch_size": 64,
     # "lr": 0.0002,
     "d_lr": 0.0004,  # Two-time scale update rule (TTUR): Train G slower than D
-    "g_lr": 0.0001,
+    "g_lr": 0.0002,
     "z_dim": 100,
     "img_size": 64,
     "channels": 3,
@@ -29,12 +30,13 @@ config = {
     "model_save_dir": "checkpoints/celeba",
     "images_save_dir": "outputs/samples/celeba",
     "resume": "checkpoints/celeba/generator_epoch_20.pth",
+    "dataset": "data/celeba_64x64",
 }
 
 # ----------------------------
 # Initialize W&B
 # ----------------------------
-wandb.init(project="dcgan-celeba", config=config)
+wandb.init(project="dcgan-celeba", config=config, mode="disabled")
 config = wandb.config
 
 # ----------------------------
@@ -43,17 +45,19 @@ config = wandb.config
 transform = transforms.Compose([
     transforms.Resize(config.img_size),
     transforms.CenterCrop(config.img_size),
-    transforms.RandomHorizontalFlip(p=0.5),  # Better Data Augmentation 
+    transforms.RandomHorizontalFlip(p=0.5),  # Better Data Augmentation
     transforms.ToTensor(),
     transforms.Normalize([0.5]*3, [0.5]*3)  # [-1, 1]
 ])
 
-dataset = torchvision.datasets.CelebA(
+dataset = datasets.CelebA(
     root="./data",
     split="all",
     download=True,  # First run will download (~1.4GB). Or manually download: https://drive.google.com/uc?id=0B7EVK8r0v71pZjFTYXZWM3FlRnM
     transform=transform
 )
+
+# dataset = datasets.ImageFolder(root=config.dataset, transform=transform)
 
 dataloader = DataLoader(dataset, batch_size=config.batch_size, shuffle=True, num_workers=4)
 
