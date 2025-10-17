@@ -17,13 +17,18 @@ import matplotlib.pyplot as plt
 # ----------------------------
 config = {
     "epochs": 20,
-    "batch_size": 128,
-    "lr": 0.0002,
+    "batch_size": 64,
+    # "lr": 0.0002,
+    "d_lr": 0.0004,  # Two-time scale update rule (TTUR): Train G slower than D
+    "g_lr": 0.0001,
     "z_dim": 100,
     "img_size": 64,
     "channels": 3,
     "sample_interval": 1,  # Save samples every epoch
     "device": "cuda" if torch.cuda.is_available() else "cpu",
+    "model_save_dir": "checkpoints/celeba",
+    "images_save_dir": "outputs/samples/celeba",
+    "resume": "checkpoints/celeba/generator_epoch_20.pth",
 }
 
 # ----------------------------
@@ -38,6 +43,7 @@ config = wandb.config
 transform = transforms.Compose([
     transforms.Resize(config.img_size),
     transforms.CenterCrop(config.img_size),
+    transforms.RandomHorizontalFlip(p=0.5),  # Better Data Augmentation 
     transforms.ToTensor(),
     transforms.Normalize([0.5]*3, [0.5]*3)  # [-1, 1]
 ])
@@ -58,11 +64,17 @@ generator = Generator(z_dim=config.z_dim, img_channels=config.channels).to(confi
 discriminator = Discriminator(img_channels=config.channels).to(config.device)
 
 # ----------------------------
+# Use current Model as warm start
+# ----------------------------
+if config.resume is not None:
+    generator.load_state_dict(torch.load(config.resume, weights_only=True))  # Only load tensors (weights), no code or custom objects
+
+# ----------------------------
 # Optimizers & Loss
 # ----------------------------
 criterion = nn.BCELoss()
-g_optimizer = optim.Adam(generator.parameters(), lr=config.lr, betas=(0.5, 0.999))
-d_optimizer = optim.Adam(discriminator.parameters(), lr=config.lr, betas=(0.5, 0.999))
+g_optimizer = optim.Adam(generator.parameters(), lr=config.g_lr, betas=(0.5, 0.999))
+d_optimizer = optim.Adam(discriminator.parameters(), lr=config.d_lr, betas=(0.5, 0.999))
 
 # ----------------------------
 # Fixed noise for consistent samples
@@ -81,8 +93,12 @@ for epoch in range(config.epochs):
         batch_size = real_images.size(0)
 
         # Labels
-        real_labels = torch.ones(batch_size, 1).to(config.device)
-        fake_labels = torch.zeros(batch_size, 1).to(config.device)
+        # real_labels = torch.ones(batch_size, 1).to(config.device)
+        # fake_labels = torch.zeros(batch_size, 1).to(config.device)
+
+        # Label Smoothing (Avoid Overconfidence)
+        real_labels = torch.full((batch_size, 1), 0.9).to(config.device)
+        fake_labels = torch.full((batch_size, 1), 0.1).to(config.device)
 
         # ------------------------
         # Train Discriminator
@@ -133,7 +149,7 @@ for epoch in range(config.epochs):
     plt.figure(figsize=(8,8))
     plt.imshow(grid_img.permute(1, 2, 0))
     plt.axis("off")
-    plt.savefig(f"samples/celeba/epoch_{epoch+1:03d}.png", bbox_inches="tight")
+    plt.savefig(f"{config.images_save_dir}/epoch_{epoch+1:03d}.png", bbox_inches="tight")
     plt.close()
 
     # Log to W&B
@@ -142,6 +158,9 @@ for epoch in range(config.epochs):
         "d_loss": avg_d_loss,
         "generated_images": [wandb.Image(grid_img)]
     })
+
+# Save generator
+torch.save(generator.state_dict(), f"{config.model_save_dir}/generator_epoch_{epoch+1}.pth")
 
 print("✅ Training complete!")
 wandb.finish()
