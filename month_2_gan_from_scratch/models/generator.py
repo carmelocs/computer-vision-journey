@@ -3,9 +3,11 @@ import torch.nn as nn
 
 class Generator(nn.Module):
     """
+
     Simple DCGAN-style Generator.
     Input: latent vector (z) of size (batch_size, z_dim)
     Output: RGB image of size (batch_size, img_channels, 64, 64)
+    
     """
     def __init__(self, z_dim=100, img_channels=3, hidden_dim=128):
         super(Generator, self).__init__()

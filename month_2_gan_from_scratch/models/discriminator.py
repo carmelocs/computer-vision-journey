@@ -5,11 +5,13 @@ from torch.nn.utils.spectral_norm import spectral_norm
 
 class Discriminator(nn.Module):
     """
+
     Simple DCGAN-style Discriminator.
     Input: RGB image of size (batch_size, img_channels, 64, 64)
     Output: probability of real image (batch_size, 1)
 
     Use Spectral Normalization to Stabilize Training (Prevents discriminator from becoming too strong.)
+    
     """
     def __init__(self, img_channels=3, hidden_dim=64):
         super(Discriminator, self).__init__()
