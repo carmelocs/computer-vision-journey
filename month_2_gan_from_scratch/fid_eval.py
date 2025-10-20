@@ -24,7 +24,7 @@ config = {
 # Load Generator
 # ----------------------------
 generator = Generator(z_dim=config["z_dim"], img_channels=config["channels"]).to(config["device"])
-generator.load_state_dict(torch.load(config["generator_path"], map_location=config["device"]))
+generator.load_state_dict(torch.load(config["generator_path"], map_location=config["device"], weights_only=True))
 generator.eval()
 
 # ----------------------------
