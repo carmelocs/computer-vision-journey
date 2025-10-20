@@ -26,11 +26,11 @@ config = {
     "z_dim": 100,
     "img_size": 64,
     "channels": 3,
-    "sample_interval": 5,  # Save samples every epoch
+    "sample_interval": 5,  # Save samples every N epoch
     "device": "cuda" if torch.cuda.is_available() else "cpu",
     "model_save_dir": "checkpoints/celeba",
     "images_save_dir": "outputs/samples/celeba",
-    "resume": "checkpoints/celeba/generator_epoch_20.pth",
+    "resume": "checkpoints/generator_epoch_015.pth",  # Set to None to train from scratch
     # "dataset": "data/celeba_64x64",
 }
 
@@ -89,11 +89,11 @@ fixed_noise = torch.randn(64, config.z_dim).to(config.device)
 # ----------------------------
 # Training Loop
 # ----------------------------
-for epoch in range(config.epochs):
+for epoch in range(1, config.epochs + 1):
     g_losses = []
     d_losses = []
 
-    for i, (real_images, _) in enumerate(tqdm(dataloader, desc=f"Epoch {epoch+1}/{config.epochs}")):
+    for i, (real_images, _) in enumerate(tqdm(dataloader, desc=f"Epoch {epoch}/{config.epochs}")):
         real_images = real_images.to(config.device)
         batch_size = real_images.size(0)
 
@@ -142,7 +142,7 @@ for epoch in range(config.epochs):
     avg_g_loss = sum(g_losses) / len(g_losses)
     avg_d_loss = sum(d_losses) / len(d_losses)
 
-    print(f"Epoch {epoch+1} | G Loss: {avg_g_loss:.4f} | D Loss: {avg_d_loss:.4f}")
+    print(f"Epoch {epoch} | G Loss: {avg_g_loss:.4f} | D Loss: {avg_d_loss:.4f}")
 
     # Generate samples
     with torch.no_grad():
@@ -154,7 +154,7 @@ for epoch in range(config.epochs):
     plt.figure(figsize=(8,8))
     plt.imshow(grid_img.permute(1, 2, 0))
     plt.axis("off")
-    plt.savefig(f"{config.images_save_dir}/epoch_{epoch+1:03d}.png", bbox_inches="tight")
+    plt.savefig(f"{config.images_save_dir}/epoch_{epoch:03d}.png", bbox_inches="tight")
     plt.close()
 
     # Log to W&B
@@ -162,13 +162,13 @@ for epoch in range(config.epochs):
         "g_loss": avg_g_loss,
         "d_loss": avg_d_loss,
         "generated_images": [wandb.Image(grid_img)]
-    })
+        }, step=epoch)
 
     # ------------------------
     # Save Checkpoint Every 10 Epochs
     # ------------------------
-    if (epoch + 1) % config.sample_interval == 0:
-        checkpoint_path = f"checkpoints/generator_epoch_{epoch+1:03d}.pth"
+    if epoch % config.sample_interval == 0:
+        checkpoint_path = f"{config.model_save_dir}/generator_epoch_{epoch:03d}.pth"
         os.makedirs("checkpoints", exist_ok=True)
         torch.save(generator.state_dict(), checkpoint_path)
         print(f"💾 Saved checkpoint: {checkpoint_path}")
@@ -181,18 +181,20 @@ for epoch in range(config.epochs):
                 real_images_path="./data/celeba_64x64/celeba_train",  # Must exist!
                 num_fake_images=1000,
                 device=config.device,
-                temp_fake_dir=f"./outputs/fid_temp/epoch_{epoch+1}"
+                temp_fake_dir=f"./outputs/fid_temp/epoch_{epoch}"
             )
             if fid_score is not None:
-                print(f"📈 FID at epoch {epoch+1}: {fid_score:.2f}")
-                wandb.log({"fid": fid_score, "epoch": epoch+1})
+                print(f"📈 FID at epoch {epoch}: {fid_score:.2f}")
+                wandb.log({
+                    "fid": fid_score
+                    }, step=epoch)
             else:
                 print("⚠️ FID computation returned None.")
         except Exception as e:
             print(f"⚠️ Failed to compute FID: {e}")
 
 # # Save the last generator
-# torch.save(generator.state_dict(), f"{config.model_save_dir}/generator_epoch_{epoch+1}.pth")
+# torch.save(generator.state_dict(), f"{config.model_save_dir}/generator_epoch_{epoch}.pth")
 
 print("✅ Training complete!")
 wandb.finish()
