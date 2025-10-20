@@ -31,7 +31,7 @@ config = {
     "model_save_dir": "checkpoints/celeba",
     "images_save_dir": "outputs/samples/celeba",
     "resume": "checkpoints/celeba/generator_epoch_20.pth",
-    "dataset": "data/celeba_64x64",
+    # "dataset": "data/celeba_64x64",
 }
 
 # ----------------------------
