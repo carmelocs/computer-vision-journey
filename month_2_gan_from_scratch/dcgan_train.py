@@ -12,20 +12,21 @@ from models.discriminator import Discriminator
 import wandb
 from tqdm import tqdm
 import matplotlib.pyplot as plt
+from fid_helper import compute_fid_with_generator
 
 # ----------------------------
 # Config
 # ----------------------------
 config = {
-    "epochs": 1,
+    "epochs": 20,
     "batch_size": 64,
     # "lr": 0.0002,
-    "d_lr": 0.0004,  # Two-time scale update rule (TTUR): Train G slower than D
+    "d_lr": 0.0002,  # Two-time scale update rule (TTUR): Train G slower than D
     "g_lr": 0.0002,
     "z_dim": 100,
     "img_size": 64,
     "channels": 3,
-    "sample_interval": 1,  # Save samples every epoch
+    "sample_interval": 5,  # Save samples every epoch
     "device": "cuda" if torch.cuda.is_available() else "cpu",
     "model_save_dir": "checkpoints/celeba",
     "images_save_dir": "outputs/samples/celeba",
@@ -36,7 +37,7 @@ config = {
 # ----------------------------
 # Initialize W&B
 # ----------------------------
-wandb.init(project="dcgan-celeba", config=config, mode="disabled")
+wandb.init(project="dcgan-celeba-checkpoint", config=config, mode="online")  # Set mode="disabled" to skip
 config = wandb.config
 
 # ----------------------------
@@ -53,7 +54,7 @@ transform = transforms.Compose([
 dataset = datasets.CelebA(
     root="./data",
     split="all",
-    download=True,  # First run will download (~1.4GB). Or manually download: https://drive.google.com/uc?id=0B7EVK8r0v71pZjFTYXZWM3FlRnM
+    download=False,  # First run will download (~1.4GB). Or manually download: https://drive.google.com/uc?id=0B7EVK8r0v71pZjFTYXZWM3FlRnM
     transform=transform
 )
 
@@ -163,8 +164,35 @@ for epoch in range(config.epochs):
         "generated_images": [wandb.Image(grid_img)]
     })
 
-# Save generator
-torch.save(generator.state_dict(), f"{config.model_save_dir}/generator_epoch_{epoch+1}.pth")
+    # ------------------------
+    # Save Checkpoint Every 10 Epochs
+    # ------------------------
+    if (epoch + 1) % config.sample_interval == 0:
+        checkpoint_path = f"checkpoints/generator_epoch_{epoch+1:03d}.pth"
+        os.makedirs("checkpoints", exist_ok=True)
+        torch.save(generator.state_dict(), checkpoint_path)
+        print(f"💾 Saved checkpoint: {checkpoint_path}")
+    
+    # Compute FID
+    try:
+        fid_score = compute_fid_with_generator(
+            generator=generator,
+            z_dim=config.z_dim,
+            real_images_path="./data/celeba_64x64/celeba_train",  # Must exist!
+            num_fake_images=1000,
+            device=config.device,
+            temp_fake_dir=f"./outputs/fid_temp/epoch_{epoch+1}"
+        )
+        if fid_score is not None:
+            print(f"📈 FID at epoch {epoch+1}: {fid_score:.2f}")
+            wandb.log({"fid": fid_score, "epoch": epoch+1})
+        else:
+            print("⚠️ FID computation returned None.")
+    except Exception as e:
+        print(f"⚠️ Failed to compute FID: {e}")
+
+# # Save the last generator
+# torch.save(generator.state_dict(), f"{config.model_save_dir}/generator_epoch_{epoch+1}.pth")
 
 print("✅ Training complete!")
 wandb.finish()
