@@ -5,20 +5,22 @@ channels:
   - conda-forge
   - defaults
 dependencies:
-  - python=3.9
-  - pytorch
-  - torchvision
-  - torchaudio
-  - pytorch-cuda=12.1        # Compatible with CUDA 12.0 system
+  - python=3.11
+  - pytorch=2.4
+  - torchvision=0.19
+  - torchaudio=2.4
+  - pytorch-cuda=12.4
   - jupyter
   - matplotlib
   - tqdm
   - pandas
   - numpy
   - scikit-image
+  - pillow
   - pip
   - pip:
     - wandb
     - opencv-python
-    - torchsummary
+    - torchinfo          # modern replacement for torchsummary
     - pyyaml
+    - pytorch-fid        # FID evaluation
