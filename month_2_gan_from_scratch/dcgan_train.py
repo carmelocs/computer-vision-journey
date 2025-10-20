@@ -173,23 +173,23 @@ for epoch in range(config.epochs):
         torch.save(generator.state_dict(), checkpoint_path)
         print(f"💾 Saved checkpoint: {checkpoint_path}")
     
-    # Compute FID
-    try:
-        fid_score = compute_fid_with_generator(
-            generator=generator,
-            z_dim=config.z_dim,
-            real_images_path="./data/celeba_64x64/celeba_train",  # Must exist!
-            num_fake_images=1000,
-            device=config.device,
-            temp_fake_dir=f"./outputs/fid_temp/epoch_{epoch+1}"
-        )
-        if fid_score is not None:
-            print(f"📈 FID at epoch {epoch+1}: {fid_score:.2f}")
-            wandb.log({"fid": fid_score, "epoch": epoch+1})
-        else:
-            print("⚠️ FID computation returned None.")
-    except Exception as e:
-        print(f"⚠️ Failed to compute FID: {e}")
+        # Compute FID
+        try:
+            fid_score = compute_fid_with_generator(
+                generator=generator,
+                z_dim=config.z_dim,
+                real_images_path="./data/celeba_64x64/celeba_train",  # Must exist!
+                num_fake_images=1000,
+                device=config.device,
+                temp_fake_dir=f"./outputs/fid_temp/epoch_{epoch+1}"
+            )
+            if fid_score is not None:
+                print(f"📈 FID at epoch {epoch+1}: {fid_score:.2f}")
+                wandb.log({"fid": fid_score, "epoch": epoch+1})
+            else:
+                print("⚠️ FID computation returned None.")
+        except Exception as e:
+            print(f"⚠️ Failed to compute FID: {e}")
 
 # # Save the last generator
 # torch.save(generator.state_dict(), f"{config.model_save_dir}/generator_epoch_{epoch+1}.pth")
