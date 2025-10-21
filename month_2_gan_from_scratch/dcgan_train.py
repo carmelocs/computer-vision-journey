@@ -18,7 +18,7 @@ from fid_helper import compute_fid_with_generator
 # Config
 # ----------------------------
 config = {
-    "epochs": 20,
+    "epochs": 100,
     "batch_size": 64,
     # "lr": 0.0002,
     "d_lr": 0.0002,  # Two-time scale update rule (TTUR): Train G slower than D
@@ -26,11 +26,11 @@ config = {
     "z_dim": 100,
     "img_size": 64,
     "channels": 3,
-    "sample_interval": 5,  # Save samples every N epoch
+    "sample_interval": 5,  # Save Checkpoint Every N Epochs
     "device": "cuda" if torch.cuda.is_available() else "cpu",
     "model_save_dir": "checkpoints/celeba",
     "images_save_dir": "outputs/samples/celeba",
-    "resume": "checkpoints/generator_epoch_015.pth",  # Set to None to train from scratch
+    "resume": None,  # Set to None to train from scratch
     # "dataset": "data/celeba_64x64",
 }
 
@@ -165,7 +165,7 @@ for epoch in range(1, config.epochs + 1):
         }, step=epoch)
 
     # ------------------------
-    # Save Checkpoint Every 10 Epochs
+    # Save Checkpoint Every N Epochs
     # ------------------------
     if epoch % config.sample_interval == 0:
         checkpoint_path = f"{config.model_save_dir}/generator_epoch_{epoch:03d}.pth"
