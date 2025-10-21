@@ -17,7 +17,7 @@ config = {
     "device": "cuda" if torch.cuda.is_available() else "cpu",
     "num_images": 5000,
     "batch_size": 64,
-    "generator_path": "checkpoints/celeba/generator_epoch_20.pth"
+    "generator_path": "checkpoints/celeba/generator_epoch_020.pth"
 }
 
 # ----------------------------
